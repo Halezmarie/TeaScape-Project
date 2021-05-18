@@ -1,26 +1,5 @@
-# README
+Plant-Noms is for anyone who is interested in vegetarian or vegan food. Users can create, delete, edit, and review products. Users can also see the reviews of other users. If you'd like to check out this app, please read below.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Installation:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Plant-Noms
-# Plant-Noms-App
+Clone this repository, run bundle install, rails db:migrate, and rails db:seed. To start the server, run rails s and navigate to http://localhost:3000 to get started.
