@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   #logout
   delete '/logout', to: 'sessions#destroy'
 
- 
+  #omni
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
   #resources
   resources :users

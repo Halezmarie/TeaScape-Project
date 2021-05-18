@@ -21,5 +21,17 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   
-    
+    def omniauth 
+      user = User.find_or_create_by(uid: request.env['omniauth.auth'][:uid], provider: request.env['omniauth.auth'][:provider]) do |u|
+        u.username = request.env['omniauth.auth'][:info][:first_name]
+        u.email = request.env['omniauth.auth'][:info][:email]
+        u.password = SecureRandom.hex(17) #if a number isnt specified it will automatically be 16
+      end 
+      if user.valid? #if the user passes the tests, then log them in 
+        session[:user_id] = user.id 
+        redirect_to root_path
+      else
+        redirect_to login_path 
+      end 
+    end 
   end
