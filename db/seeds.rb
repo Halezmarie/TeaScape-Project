@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+    # 100.times do
+    #     brand = Faker::Tea.variety
+    #     flavor = Faker::Tea.type
+    #     color = Faker::Color.color_name
+    #     Tea.create()
+    #     puts "Created #{flavor} #{brand}"
+    # end
+
+    # gem info 
