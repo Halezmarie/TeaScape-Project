@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id # userid for session
         redirect_to root_path # rendering root path aka application/welcome!
       else 
-        render :new #g o back to login form if the info isnt correct 
+        render :new # go back to login form if the info isnt correct 
       end 
     end
   
