@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_011943) do
+ActiveRecord::Schema.define(version: 2021_06_25_174231) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "text"
+    t.string "title"
+    t.integer "stars"
+    t.integer "user_id", null: false
+    t.integer "tea_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tea_id"], name: "index_reviews_on_tea_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "teas", force: :cascade do |t|
+    t.string "type"
+    t.string "flavor"
+    t.string "description"
+    t.integer "brand_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["brand_id"], name: "index_teas_on_brand_id"
+    t.index ["user_id"], name: "index_teas_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -22,4 +52,8 @@ ActiveRecord::Schema.define(version: 2021_05_18_011943) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "reviews", "teas"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "teas", "brands"
+  add_foreign_key "teas", "users"
 end
