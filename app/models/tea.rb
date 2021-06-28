@@ -1,4 +1,11 @@
 class Tea < ApplicationRecord
   belongs_to :brand
   belongs_to :user
+  has_many :reviews
+  has_many :users, through: :reviews
+
+  validates :type, presence: true
+  validates :description, presence: true
+  validates :flaor, presence: true
+  # will need validations for dups+brand
 end
