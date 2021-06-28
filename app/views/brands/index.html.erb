@@ -1,1 +1,9 @@
 <h1> All of the TeaScape brands </h1>
+
+<ol>
+
+  <% @brands.collect do |brand| %>
+        <li><%= link_to brand.name, brand_path(brand) %></li>
+  <% end %>
+
+</ol>

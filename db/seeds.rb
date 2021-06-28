@@ -9,7 +9,7 @@
     # 100.times do
     #     brand = Faker::Tea.variety
     #     flavor = Faker::Tea.type
-    #     color = Faker::Color.color_name
+        
     #     Tea.create()
     #     puts "Created #{flavor} #{brand}"
     # end
