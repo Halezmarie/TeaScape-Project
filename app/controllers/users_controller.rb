@@ -1,27 +1,27 @@
 class UsersController < ApplicationController
 
-def new # render the user signup form 
+  def new # render the user signup form 
     if !logged_in? 
         @user = User.new 
     else 
         redirect_to root_path
     end 
-end 
+  end 
 
-def create # going through the signup form
-    user = User.new(user_params)
-    if user.save 
+  def create # going through the signup form
+     user = User.new(user_params)
+     if user.save 
         session[:user_id] = user.id # user logs in
         redirect_to root_path # applicationwelcome
-    else
+     else
         flash[:error] = "Oh no! Please try again!" # make validations for error 
         render :new # render signup form again 
+     end 
     end 
-end 
 
-private
+  private
 
-def user_params 
-    params.require(:user).permit(:username, :email, :password) # user params 
-end
+  def user_params 
+      params.require(:user).permit(:username, :email, :password) # user params 
+  end
 end
