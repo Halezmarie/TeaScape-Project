@@ -6,6 +6,6 @@ class Tea < ApplicationRecord
 
   validates :type, presence: true
   validates :description, presence: true
-  validates :flaor, presence: true
+  validates :flavor, presence: true
   # will need validations for dups+brand
 end
