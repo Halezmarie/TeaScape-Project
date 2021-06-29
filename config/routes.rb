@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  
   resources :reviews
   resources :teas
   resources :brands
 
   
-  root to: 'application#welcome'
+  root to: 'welcome#show'
 
   #signup
   get '/signup', to: 'users#new'
