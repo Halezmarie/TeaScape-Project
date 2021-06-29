@@ -9,6 +9,7 @@ class BrandsController < ApplicationController
   end
   
   def new
+    
   end
 
   def create
@@ -23,9 +24,4 @@ class BrandsController < ApplicationController
   def destroy
   end
 
-  private
-
-  def brand_params
-    params.require(:brand).permit(:name)
-  end
 end
