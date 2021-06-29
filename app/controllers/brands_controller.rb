@@ -1,4 +1,5 @@
 class BrandsController < ApplicationController
+  before_action :set_brand, only:[:show, :edit, :update]
   before_action :require_login
   
   def index
@@ -14,9 +15,9 @@ class BrandsController < ApplicationController
 
   def create
     brand = Brand.new(brand_params)
-    @brand.user_id = session[:user_id]
+    
       if brand.save
-        redirect_to brand_path(@brand)
+        redirect_to brands_path(@brand)
       else
         render :new
       end
@@ -27,7 +28,7 @@ class BrandsController < ApplicationController
 
   def update
     if @brand.update(brand_params)
-      redirect_to brand_path(@brand)
+      redirect_to brands_path(@brand)
   else
       render :edit
   end
@@ -40,5 +41,9 @@ class BrandsController < ApplicationController
 
   def brand_params
       params.require(:brand).permit(:name)
+  end
+
+  def set_brand
+    @brand = Brand.find(params[:id])
   end
 end
