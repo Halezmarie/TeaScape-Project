@@ -1,0 +1,21 @@
+<%= form_with model: tea do |f| %>
+
+<div>
+    <%= f.label :flavor %>
+    <%= f.text_field :flavor %>
+</div>
+<br><br><br>
+<div>
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+</div>
+
+  <br><br>
+<div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br><br>
+</div>
+
+    <%= f.submit %>
+<%end%>
