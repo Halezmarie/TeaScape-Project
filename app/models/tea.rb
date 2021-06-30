@@ -1,4 +1,5 @@
 class Tea < ApplicationRecord
+  self.inheritance_column = :_type_disabled
   belongs_to :brand
   belongs_to :user
   has_many :reviews

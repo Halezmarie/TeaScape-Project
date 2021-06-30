@@ -1,10 +1,24 @@
 <%= form_with model: tea do |f| %>
 
+<h3> Please select a TeaScape brand that already exists! </h3>
+  <div>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Choose One'%>
+
+  </div>
+<br><br>
+
+<p> If you do not see a specific brand, please make a new brand: </p>
+
+<%= link_to "Create a new brand of tea!", new_brand_path %>
+
+<br><br>
+
 <div>
     <%= f.label :flavor %>
     <%= f.text_field :flavor %>
 </div>
-<br><br><br>
+<br><br>
+
 <div>
     <%= f.label :type %>
     <%= f.text_field :type %>

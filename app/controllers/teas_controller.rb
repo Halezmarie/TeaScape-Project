@@ -33,7 +33,7 @@ class TeasController < ApplicationController # just like brands
   private
 
   def tea_params
-    params.require(:tea).permit(:flavor, :type, :description)
+    params.require(:tea).permit(:flavor, :type, :description, :brand)
   end
 
   def set_tea
