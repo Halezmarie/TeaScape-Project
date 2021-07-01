@@ -1,8 +1,10 @@
 <h1> All of the delicious teas on TeaScape! </h1>
 
 
-<%= @teas.each do |tea| %>
-<%end%>
+  <% @teas.each do |tea| %>
+    <li><%= tea.flavor - tea.type %></li>
+    <p><%= tea.description %></p>
+  <% end %>
 
 <h2> Don't see a specific flavor of tea?! Make it! </h2>
 

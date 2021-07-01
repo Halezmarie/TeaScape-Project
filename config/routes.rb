@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :reviews
   resources :teas
-  resources :brands
+  resources :brands, only: [:index, :new, :create]
 
   
   root to: 'welcome#show'
