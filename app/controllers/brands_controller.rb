@@ -46,4 +46,9 @@ class BrandsController < ApplicationController
   def set_brand
     @brand = Brand.find(params[:id])
   end
+
+  # Setter methods so that I can set a value of the instance variable outside of the class 
+  def set_brand_ids
+    @brand_ids = current_user.brands.collect{|tea| tea.brand_id}.uniq
+  end
 end
