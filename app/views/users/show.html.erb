@@ -1,0 +1,8 @@
+<h1> Profile Page </h1>
+
+<h3>Reviewed teas: </h3>
+<ul>
+  <% @user.reviewed_teas.each do |tea|%>
+  <li> <%= link_to tea.flavor_and_brand, tea_path(tea)%> </li>
+  <% end %>
+</ul>
