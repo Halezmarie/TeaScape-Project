@@ -16,19 +16,15 @@ Rails.application.routes.draw do
   #omni
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  resources :reviews
-  resources :teas
-  resources :brands, only: [:index, :new, :create]
-
-  resources :users, only: [:show] 
+  resources :users, only: [:show]
   resources :reviews, except: [:show, :index]
-  resources :teas 
+  resources :teas
 
-  resources :brands do # nested route
+  resources :brands do
     resources :teas, only: [:index, :new, :create]
   end
 
-  resources :teas do # or brands? tea makes more sense 
+  resources :teas do 
     resources :reviews, only: [:index, :new, :create]
   end
 end
