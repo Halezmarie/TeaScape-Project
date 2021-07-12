@@ -11,9 +11,10 @@
   </head>
 
 
-<div> <%= link_to "Home", root_path %>
-<%= link_to "Log Out", logout_path, method: :delete %> 
-<%= link_to "All Brands of Tea", brands_path %></div>
+<div> <%= link_to "Home", root_path %></div>
+<div><%= link_to "All Brands of Tea", brands_path %></div>
+<div><%= link_to "All Flavors of Tea", teas_path %></div>
+<div><%= link_to "Log Out", logout_path, method: :delete %> </div>
 
   <body>
     <%= yield %>
