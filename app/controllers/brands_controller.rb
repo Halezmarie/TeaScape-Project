@@ -22,6 +22,9 @@ class BrandsController < ApplicationController
   end
 
   def create  # tries to save it to the database if it is possible
+    @brand = Brand.find_by(id: params[:brand_id])
+    @tea.brand = @brand
+    @tea.user_id = current_user[:id]
     @brand = Brand.new(brand_params)
       if @brand.save
         redirect_to brands_path(@brand)

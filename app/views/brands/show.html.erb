@@ -1,7 +1,13 @@
 <h1> Check this brand of tea out: </h1>
 <h3>Mmmm... <%= @brand.name %></h3>
 
-
+<ul>
+<% @brand.teas.each do |tea| %>
+    <li>
+        <%= link_to tea.flavor, tea_path(tea)%> - <%= tea.brand.name %>
+    </li>
+<% end %>
+</ul>
 
 
 
