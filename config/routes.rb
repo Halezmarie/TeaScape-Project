@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #omni
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  resources :users, only: [:show]
+  resources :users
   resources :reviews, except: [:show, :index]
   resources :teas
 

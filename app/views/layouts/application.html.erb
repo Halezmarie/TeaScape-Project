@@ -11,7 +11,9 @@
   </head>
 
 
-   <div><%= render_nav_bar %></div>
+<div> <%= link_to "Home", root_path %>
+<%= link_to "Log Out", logout_path, method: :delete %> 
+<%= link_to "All Brands of Tea", brands_path %></div>
 
   <body>
     <%= yield %>
