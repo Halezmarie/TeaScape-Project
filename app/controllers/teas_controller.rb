@@ -41,6 +41,12 @@ class TeasController < ApplicationController # just like brands
   end
   
   def update
+    @tea = Tea.find params[:id] # must set @tea instance variable to tea object in order to perform an update on it
+    if @tea.update(tea_params)
+      redirect_to teas_path(@tea)
+    else
+      render :edit
+    end
   end
   
   def destroy

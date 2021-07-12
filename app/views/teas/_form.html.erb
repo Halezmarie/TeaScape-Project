@@ -1,8 +1,4 @@
-<%= form_with model: [brand, tea] do |f| %>
-
-<p> If you do not see a specific brand, please make a new brand: </p>
-
-<%= link_to "Create a new brand of tea!", new_brand_path %>
+<%= form_with model: @tea do |f| %>
 
 <br><br>
 
