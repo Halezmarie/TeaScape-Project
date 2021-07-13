@@ -36,6 +36,7 @@ class TeasController < ApplicationController # just like brands
         render :new
     end
   end
+
   
   def edit
   end

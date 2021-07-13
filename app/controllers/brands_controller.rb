@@ -34,7 +34,7 @@ class BrandsController < ApplicationController
   end
 
   def update
-    @brand = Brand.find params[:id] # must set @brand instance variable to point appropriate brand object in order to perform anYYupdate on it
+    @brand = Brand.find params[:id] # must set @brand instance variable to point appropriate brand object in order to perform any update on it
     if @brand.update(brand_params)
       redirect_to brands_path(@brand)
     else

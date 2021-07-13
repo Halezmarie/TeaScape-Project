@@ -1,10 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :require_login
+
   def index
-  end
-  
-  def show
-    @review = Review.find_by_id(params[:id])
+    @reviews = Review.all
   end
     
   def new
@@ -31,6 +29,10 @@ class ReviewsController < ApplicationController
   end
   
   def destroy
+  end
+
+  def show
+    @review = Review.find_by_id(params[:id])
   end
 
   private

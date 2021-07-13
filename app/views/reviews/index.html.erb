@@ -1,1 +1,12 @@
 <h1> All of the TeaScape Reviews </h1>
+
+<ul>
+<% @reviews.each do |review| %>
+
+  <li>
+    <%= @review.tea.flavor%>: <%= link_to @review.title, review_path(review)%> - <%= @review.stars%>
+  </li> 
+  <br>
+
+<% end %>
+</ul>

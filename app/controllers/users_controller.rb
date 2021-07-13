@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         session[:user_id] = user.id # user logs in use the word usage of passing through the session hash 
         redirect_to root_path # applicationwelcome
      else
-        flash[:error] = "Oh no! Please try again!" # make validations for error 
+        # add error - finish flash later 
         render :new # render signup form again 
      end 
     end 
