@@ -6,15 +6,11 @@ class ReviewsController < ApplicationController
   end
     
   def new
-    if @tea = Tea.find_by_id(params[:tea_id])
-      @review = @tea.reviews.build
-    else
-      @review = Review.new
-    end
+    @review = Review.new
   end
   
   def create
-    @review = current_user.reviews.build(review_params)
+    @review = Review.new(review_params)
     if @review.save
       redirect_to review_path(@review)
     else
@@ -39,5 +35,9 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:tea_id, :title, :text, :stars)
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 end

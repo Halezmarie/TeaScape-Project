@@ -6,10 +6,10 @@ class TeasController < ApplicationController # just like brands
   end
   
   def show
-    if Brand.find_by(id: params[:id])
+    if Tea.find_by(id: params[:id])
       @tea = Tea.find(params[:id])
   else
-      redirect_to teas_path # add an alert: could not find the tea
+      redirect_to teas_path  # add an alert: could not find the tea
     end
   end
     
