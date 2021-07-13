@@ -8,6 +8,7 @@ class TeasController < ApplicationController # just like brands
   def show
     if Tea.find_by(id: params[:id])
       @tea = Tea.find(params[:id])
+      @reviews = @tea.reviews # show the reviews for the teas
   else
       redirect_to teas_path  # add an alert: could not find the tea
     end

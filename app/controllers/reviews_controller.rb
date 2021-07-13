@@ -1,20 +1,28 @@
 class ReviewsController < ApplicationController
   before_action :require_login
 
-  def index
-    @reviews = Review.all
-  end
+  # def index
+  #   @reviews = Review.all
+  # end  
+  # ^ will be too confusing for users to see all comments at once
     
-  def new
-    @review = Review.new
+  def new 
+    if params[:tea_id] && @tea = Tea.find_by(id: params[:tea_id])
+      @review = Review.new(tea_id: @tea.id)
+    else
+      redirect_to tea_path(@tea) 
+    end
   end
   
   def create
+    @tea = Tea.find_by(id: params[:tea_id])
     @review = Review.new(review_params)
+    @review.tea = @tea
+    @review.user_id = current_user[:id]
     if @review.save
-      redirect_to review_path(@review)
+        redirect_to tea_path(@tea)
     else
-      render :new
+        render :new
     end
   end
   
@@ -28,7 +36,11 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find_by_id(params[:id])
+    if Review.find_by(id: params[:id])
+      @review = Review.find(params[:id])
+  else
+      redirect_to reviews_path  # add an alert: could not find the tea
+    end
   end
 
   private

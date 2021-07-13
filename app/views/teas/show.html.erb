@@ -8,6 +8,18 @@
 
 <p> Type: <%= @tea.type %></p>
 
+<h3>Reviews:</h3>
+<ul>
+    <% @reviews.each do |review| %>
+        <li>
+            <%= review.user.email %>  thinks: <%= review.text %>
+            <% if review.user_id == current_user.id %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>
+
+
 <%= link_to "Edit this flavor of tea", edit_tea_path(@tea) %><br>
 
 <%= link_to "New Review", new_tea_review_path(@tea) %>
