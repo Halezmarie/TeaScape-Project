@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @tea = Tea.find_by(id: params[:tea_id])
     @review = Review.new(review_params)
     @review.tea = @tea
-    @review.user_id = current_user[:id]
+    @review.user_id = current_user.id
     if @review.save
         redirect_to tea_path(@tea)
     else
@@ -27,10 +27,18 @@ class ReviewsController < ApplicationController
   end
   
   def edit
-  end
+    if @review.user_id != current_user.id
+        redirect_to tea_path(@review.tea_id) 
+    end
+end
   
-  def update
+def update
+  if @review.update(review_params)
+      redirect_to tea_path(@review.tea_id)
+  else
+      render :edit
   end
+end
   
   def destroy
   end

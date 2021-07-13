@@ -1,15 +1,16 @@
 <%= form_with model: [tea, review] do |f| %>
 
 
+ <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+<br><br>
   <div>
     <%= f.label :stars %>
     <%= f.number_field :stars, min:0, max:10 %>
   </div>
   <br>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
   <br>
   <div>
     <%= f.label :text %>

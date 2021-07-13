@@ -10,10 +10,11 @@
 
 <h3>Reviews:</h3>
 <ul>
-    <% @reviews.each do |review| %>
+    <% @reviews.each do |review| %> <br>
         <li>
-            <%= review.user.email %>  thinks: <%= review.text %>
+            <%= review.user.email %> <br> Title: <%= review.title%> | Stars given: <%= review.stars%> | <%= review.text %> 
             <% if review.user_id == current_user.id %>
+                <br><%= link_to "edit", edit_review_path(review) %>
             <% end %>
         </li>
     <% end %>
