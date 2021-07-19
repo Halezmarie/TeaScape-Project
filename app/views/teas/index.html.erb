@@ -1,5 +1,10 @@
 <h1> All of the delicious flavors of tea on TeaScape! </h1>
 
+<%= form_tag teas_path(@tea), method: :get do %>
+    <%= text_field_tag :search, params[:search]%>
+    <%= submit_tag "Find Flavor of Tea" %>
+<% end %>
+<br><br>
 
   <% @teas.each do |tea| %>
    <li>

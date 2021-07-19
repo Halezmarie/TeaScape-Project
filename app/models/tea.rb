@@ -11,4 +11,14 @@ class Tea < ApplicationRecord
   validates :description, presence: true
   validates :flavor, presence: true
   # will need validations for dups+brand
+
+  def self.search(search)
+    if !search.blank? 
+      Tea.all.where(["LOWER(flavor) LIKE ?","%#{search.downcase}%"])
+    else 
+      Tea.all
+    end
+  end
+
+
 end

@@ -4,6 +4,7 @@ class TeasController < ApplicationController # just like brands
 
   def index
     @teas = Tea.all
+    @teas = Tea.search(params[:search])
   end
   
   def show
@@ -60,7 +61,7 @@ end
   private
 
   def tea_params
-    params.require(:tea).permit(:tea, :flavor, :type, :description, :brand_id)
+    params.require(:tea).permit(:tea, :flavor, :type, :description, :brand_id, :search)
   end
 
   # setter method so that I can set a value of the instance variable outside of the class

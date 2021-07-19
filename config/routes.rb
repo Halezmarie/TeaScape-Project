@@ -16,9 +16,6 @@ Rails.application.routes.draw do
   #omni
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  #search bar
-  get '/search', to: 'brands#search'
-
   resources :users
   resources :reviews 
   resources :teas 
