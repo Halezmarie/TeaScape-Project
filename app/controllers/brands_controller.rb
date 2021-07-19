@@ -6,6 +6,8 @@ class BrandsController < ApplicationController
   
   def index
     @brands = Brand.all
+    @brands = Brand.search(params[:search])
+    
   end
 
   def show
@@ -30,9 +32,9 @@ class BrandsController < ApplicationController
       end
   end
 
-  def edit
-  end
-
+    def edit
+   end
+    
   def update
     @brand = Brand.find params[:id] # must set @brand instance variable to point appropriate brand object in order to perform any update on it
     if @brand.update(brand_params)
@@ -48,7 +50,7 @@ class BrandsController < ApplicationController
   private
 
   def brand_params
-      params.require(:brand).permit(:name)
+      params.require(:brand).permit(:name, :search)
   end
 
   def set_brand

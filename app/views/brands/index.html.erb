@@ -1,5 +1,16 @@
 <h1> All of the TeaScape brands </h1>
 
+<%
+=begin%>
+ We are not using a form for because with form for we are updating/creating an object or a model. We are retrieving data 
+<%
+=end%>
+
+<%= form_tag brands_path(@brand), method: :get do %>
+    <%= text_field_tag :search, params[:search]%>
+    <%= submit_tag "Find Brand" %>
+<% end %>
+
 <ul>
 <% @brands.collect do |brand| %>
  <li><%= link_to brand.name, brand_path(brand) %></li>

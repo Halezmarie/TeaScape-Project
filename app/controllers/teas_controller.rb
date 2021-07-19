@@ -42,7 +42,7 @@ class TeasController < ApplicationController # just like brands
   
   def edit
     if @tea.user_id != current_user.id
-        redirect_to tea_path(@tea)
+        redirect_to tea_path(@tea) # add alert saying you have to be right user 
     end
 end
   
