@@ -1,5 +1,6 @@
 class TeasController < ApplicationController # just like brands 
   before_action :require_login
+  before_action :set_tea, only: [:edit, :update, :destroy]
 
   def index
     @teas = Tea.all
@@ -40,16 +41,18 @@ class TeasController < ApplicationController # just like brands
 
   
   def edit
-  end
+    if @tea.user_id != current_user.id
+        redirect_to tea_path(@tea)
+    end
+end
   
   def update
-    @tea = Tea.find params[:id] # must set @tea instance variable to tea object in order to perform an update on it
     if @tea.update(tea_params)
-      redirect_to teas_path(@tea)
+        redirect_to tea_path(@tea)
     else
-      render :edit
+        render :edit
     end
-  end
+end
   
   def destroy
   end

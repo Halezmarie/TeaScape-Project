@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :require_login
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   # def index
   #   @reviews = Review.all
@@ -14,7 +15,7 @@ class ReviewsController < ApplicationController
     end
   end
   
-  def create
+  def create # need to refactor 
     @tea = Tea.find_by(id: params[:tea_id])
     @review = Review.new(review_params)
     @review.tea = @tea

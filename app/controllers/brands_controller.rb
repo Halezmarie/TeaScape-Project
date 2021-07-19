@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  before_action :set_brand, only:[:show, :edit]
+  before_action :set_brand, only:[:show, :edit, :update]
   #  set a value of an instance variable outside the class
   before_action :require_login
   
@@ -13,7 +13,7 @@ class BrandsController < ApplicationController
       @brand = Brand.find(params[:id])
       # if the tea of brand is present show it
     else
-      redirect_to brands_path # if not, "could not find the brand of tea" add alert here 
+      redirect_to brands_path 
     end
   end
   
