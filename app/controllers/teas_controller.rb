@@ -4,7 +4,7 @@ class TeasController < ApplicationController # just like brands
 
   def index
     @teas = Tea.all
-    @teas = Tea.search(params[:search])
+    @teas = Tea.by_flavor(params[:search])
   end
   
   def show

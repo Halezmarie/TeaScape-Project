@@ -6,7 +6,7 @@ class BrandsController < ApplicationController
   
   def index
     @brands = Brand.all
-    @brands = Brand.search(params[:search])
+    @brands = Brand.by_name(params[:search])
     
   end
 
