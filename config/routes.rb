@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :reviews 
-  resources :teas 
+  # resources :teas 
 
   resources :brands do
     resources :teas, only: [:index, :new, :create]

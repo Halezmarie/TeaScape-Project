@@ -43,7 +43,7 @@ class TeasController < ApplicationController # just like brands
   
   def edit
     if @tea.user_id != current_user.id
-        redirect_to tea_path(@tea)
+        redirect_to tea_path(@tea), alert: "You can't edit this tea unless you created it!"
     end
 end
   

@@ -9,12 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-<div> <%= link_to "Home", root_path %></div>
-<div><%= link_to "All Brands of Tea", brands_path %></div>
-<div><%= link_to "All Flavors of Tea", teas_path %></div>
-<div><%= link_to "Profile", user_path(current_user) %></div>
-<div><%= link_to "Log Out", logout_path, method: :delete %> </div>
+  
+<div><%= render_nav_bar %></div>
 
   <body>
 

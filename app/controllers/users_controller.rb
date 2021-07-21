@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id # user logs in use the word usage of passing through the session hash 
         redirect_to user_path(@user) # applicationwelcome
      else
-        redirect_to '/signup' # render signup form again 
+        render :new # render signup form again 
      end 
     end 
 
