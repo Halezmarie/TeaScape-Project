@@ -10,6 +10,7 @@ class Tea < ApplicationRecord
   validates :type, presence: true
   validates :description, presence: true
   validates :flavor, presence: true
+  validates_uniqueness_of :flavor, :case_sensitive => false
   # will need validations for dups+brand
   validate :not_a_duplicate
 

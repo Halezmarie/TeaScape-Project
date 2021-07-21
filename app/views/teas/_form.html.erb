@@ -3,7 +3,14 @@
 
 <%= form_with model: [brand, tea]  do |f| %>
 
+ <%= f.hidden_field :user_id, value: current_user.id %>
+    <% if brand %>
+        <%= f.hidden_field :brand_id, value: brand.id %>
+    <% end %>
+
 <br><br>
+
+
 
 <div>
     <%= f.label :flavor %>

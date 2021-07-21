@@ -55,7 +55,13 @@ end
     end
 end
   
-  def destroy
+ def destroy
+    if @tea.user_id == current_user.id
+      @tea.destroy
+      redirect_to teas_path
+    else
+      redirect_to teas_path, alert: "You can't delete this tea because you did not make it!"
+    end
   end
   
   private

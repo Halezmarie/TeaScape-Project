@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only:[:show, :edit, :update]
+  before_action :set_brand_ids, only: [:edit, :update]
   #  set a value of an instance variable outside the class
   before_action :require_login
   
@@ -32,11 +33,13 @@ class BrandsController < ApplicationController
       end
   end
 
-    def edit
-   end
+  def edit
+    if !@brand_ids.include?(@brand.id)
+      redirect_to brands_path, alert: "You can't edit this brand because you did not make it!"
+    end
+  end
     
-  def update
-    @brand = Brand.find params[:id] # must set @brand instance variable to point appropriate brand object in order to perform any update on it
+  def update # must set @brand instance variable to point appropriate brand object in order to perform any update on it
     if @brand.update(brand_params)
       redirect_to brands_path(@brand)
     else
@@ -59,6 +62,6 @@ class BrandsController < ApplicationController
 
   # Setter methods so that I can set a value of the instance variable outside of the class 
   def set_brand_ids
-    @brand_ids = current_user.brands.collect{|tea| tea.brand_id}.uniq
+    @brand_ids = current_user.teas.collect{|tea| tea.brand_id}.uniq
   end
 end

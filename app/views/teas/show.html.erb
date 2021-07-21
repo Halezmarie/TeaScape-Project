@@ -16,7 +16,7 @@
         <li>
             <%= review.user.email %> <br> Title: <%= review.title%> | Stars given: <%= review.stars%> | <%= review.text %> 
             <% if review.user_id == current_user.id %>
-                <br><%= link_to "edit", edit_review_path(review) %>
+                <br><%= link_to "edit", edit_review_path(review) %> | <%= link_to "delete", review_path(review), method: :delete %><br> 
             <% end %>
         </li>
     <% end %>
@@ -25,4 +25,5 @@
 
 <%= link_to "Edit this flavor of tea", edit_tea_path(@tea) %><br>
 
-<%= link_to "New Review", new_tea_review_path(@tea) %>
+<%= link_to "New Review", new_tea_review_path(@tea) %><br>
+ <%= link_to "Delete this tea", tea_path(@tea), method: :delete %>

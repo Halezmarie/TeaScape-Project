@@ -41,8 +41,14 @@ def update
   end
 end
   
-  def destroy
+def destroy
+  if @review.user_id == current_user.id
+    @review.destroy
+    redirect_to tea_path(@review.tea_id)
+  else
+    redirect_to tea_path(@review.tea_id)
   end
+end
 
   def show
     if Review.find_by(id: params[:id])
