@@ -9,13 +9,12 @@ class UsersController < ApplicationController
   end 
 
   def create # going through the signup form
-     user = User.new(user_params)
-     if user.save 
-        session[:user_id] = user.id # user logs in use the word usage of passing through the session hash 
+     @user = User.new(user_params)
+     if @user.save
+        session[:user_id] = @user.id # user logs in use the word usage of passing through the session hash 
         redirect_to root_path # applicationwelcome
      else
-        # add error - finish flash later 
-        render :new # render signup form again 
+        redirect_to '/signup' # render signup form again 
      end 
     end 
 

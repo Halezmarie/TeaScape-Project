@@ -15,7 +15,7 @@ class BrandsController < ApplicationController
       @brand = Brand.find(params[:id])
       # if the tea of brand is present show it
     else
-      redirect_to brands_path 
+      redirect_to brands_path
     end
   end
   

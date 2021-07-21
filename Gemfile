@@ -66,3 +66,6 @@ gem 'omniauth-rails_csrf_protection' #added protection
 
 # faker gem
 gem 'faker'
+
+#validate email
+gem "valid_email2"

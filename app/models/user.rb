@@ -8,6 +8,9 @@ class User < ApplicationRecord
   # has many brands through teas? should I show both relationships?
 
   # validations 
-  validates :username, uniqueness: true,  presence: true
-  validates :email, presence: true
+  validates :email, presence: true, :uniqueness => { :case_sensitive => false }
+  validates :username, presence: true
+  validates :email, presence: true, 'valid_email_2/email': true
+
+  
   end

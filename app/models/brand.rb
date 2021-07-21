@@ -5,4 +5,6 @@ class Brand < ApplicationRecord
 
   scope :by_name, ->(search) { where('name LIKE ?', "%#{search}%") }
 
+  
+
 end
