@@ -1,7 +1,6 @@
 <%= render 'layouts/flash' %>
 
-<h1> Check out this tea </h1>
-
+<h1> Check out this tea </h1> 
 <p> Brand: <%= @tea.brand.name %></p> 
 
 <p> Flavor: <%= @tea.flavor %></p> 
@@ -9,6 +8,9 @@
 <p> Description: <%= @tea.description %></p>
 
 <p> Type: <%= @tea.type %></p>
+
+~ created by: <%= @tea.user.email %>
+
 
 <h3>Reviews:</h3>
 <ul>
@@ -21,9 +23,12 @@
         </li>
     <% end %>
 </ul>
-
-
+<br>
+<% if current_user.id == @tea.user_id %>
 <%= link_to "Edit this flavor of tea", edit_tea_path(@tea) %><br>
-
-<%= link_to "New Review", new_tea_review_path(@tea) %><br>
  <%= link_to "Delete this tea", tea_path(@tea), method: :delete %>
+<% end %>
+<br>
+<%= link_to "New Review", new_tea_review_path(@tea) %><br>
+
+ 

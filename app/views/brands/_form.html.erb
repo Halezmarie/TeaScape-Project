@@ -1,8 +1,6 @@
 <%= render partial: 'layouts/errors', locals: {object: @brand}  %>
 
 <%= form_with model: brand do |f| %>
-
-
     <div>
         <%= f.label :name %><br>
         <%= f.text_field :name %>

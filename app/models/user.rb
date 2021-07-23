@@ -5,12 +5,14 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :reviewed_teas, through: :reviews, source: :tea
   has_many :teas 
-  # has many brands through teas? should I show both relationships?
+  has_many :brands
+  
 
   # validations 
-  validates :email, presence: true, :uniqueness => { :case_sensitive => false }
+  validates :email, uniqueness: true 
   validates :username, presence: true
   validates :email, presence: true, 'valid_email_2/email': true
 
-  
+
+
   end

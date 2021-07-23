@@ -3,8 +3,16 @@ class TeasController < ApplicationController # just like brands
   before_action :set_tea, only: [:edit, :update, :destroy]
 
   def index
+    if params[:brand_id]
+      if Brand.find_by(id: params[:brand_id])
+          @teas = Brand.find(params[:brand_id]).teas
+      else
+          redirect_to brands_path, alert: "Uh oh! TeaScape can't find that brand of tea!"
+      end
+    else 
     @teas = Tea.all
     @teas = Tea.by_flavor(params[:search])
+    end
   end
   
   def show
@@ -22,7 +30,7 @@ class TeasController < ApplicationController # just like brands
       # -create a new tea with a brand association
       @tea = Tea.new(brand_id: @brand.id)
     else
-      redirect_to brands_path # put an alert: cant create a tea without a brand
+      redirect_to brands_path, alert: "You can't create a tea without a brand"
     end
   end
   
@@ -60,7 +68,7 @@ end
       @tea.destroy
       redirect_to teas_path
     else
-      redirect_to teas_path, alert: "You can't delete this tea because you did not make it!"
+      redirect_to tea_path(@tea), alert: "You can't delete this tea because you did not make it!"
     end
   end
   

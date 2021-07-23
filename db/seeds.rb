@@ -3,15 +3,25 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#
 
-    # 100.times do
-    #     brand = Faker::Tea.variety
-    #     flavor = Faker::Tea.type
+
+#     # 100.times do
+#     #     brand = Faker::Tea.variety
+#     #     flavor = Faker::Tea.type
+          
         
-    #     Tea.create()
-    #     puts "Created #{flavor} #{brand}"
-    # end
+#     #     Tea.create()
+#     #     puts "Created #{flavor} #{brand}"
+#     # end
 
-    # gem info 
+#     # gem info 
+
+#     biscotto= User.create(username: "Biscotto", email: "biscotto@biscotto.com", password: "password")
+#     anastasia= User.create(username: "Anastasia", email: "anastasia@anastasia.com", password: "password")
+
+# Brand.create(name: "Republic of Tea")
+
+# Tea.create(brand: "Republic of Tea" flavor: "Orange Citrus", type: "green tea", description: "yummyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
+
+# # GameItem.create(title: "Final Fantasy 7 PS1", genre: "Role-Playing", url: "https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg", rating: "T", user_id: anastasia.id)

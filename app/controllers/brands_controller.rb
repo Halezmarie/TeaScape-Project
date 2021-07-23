@@ -1,8 +1,11 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only:[:show, :edit, :update]
-  before_action :set_brand_ids, only: [:edit, :update]
-  #  set a value of an instance variable outside the class
   before_action :require_login
+  #  set a value of an instance variable outside the class
+
+  before_action :set_brand_ids, only: [:show, :edit, :update] # show edit link if user made the brand
+ 
+  
   
   
   def index
@@ -16,7 +19,7 @@ class BrandsController < ApplicationController
       @brand = Brand.find(params[:id])
       # if the tea of brand is present show it
     else
-      redirect_to brands_path
+      redirect_to brands_path, alert: "This tea does not exist! Maybe you can make it?" 
     end
   end
   
@@ -34,12 +37,14 @@ class BrandsController < ApplicationController
   end
 
   def edit
-    if !@brand_ids.include?(@brand.id)
-      redirect_to brands_path, alert: "You can't edit this brand because you did not make it!"
+    if @brand_id != current_user.id
+      redirect_to brands_path, alert: "You can't edit this, you did not make this tea!"
     end
   end
     
   def update # must set @brand instance variable to point appropriate brand object in order to perform any update on it
+    # if @brand_id != current_user.id
+      
     if @brand.update(brand_params)
       redirect_to brands_path(@brand)
     else
@@ -62,6 +67,6 @@ class BrandsController < ApplicationController
 
   # Setter methods so that I can set a value of the instance variable outside of the class 
   def set_brand_ids
-    @brand_ids = current_user.teas.collect{|tea| tea.brand_id}.uniq
+    @brand_id = current_user.id
   end
 end
