@@ -1,6 +1,7 @@
 <%= render partial: 'layouts/errors', locals: {object: @user}  %>
 
 <h1>Do you want to become a TeaScape member? Sign up here!:</h1>
+<br><br>
 
 <%= form_for(@user, url: signup_path) do |f| %>
     <%= f.label :email %>
@@ -14,7 +15,7 @@
     <br><br>
     <%= f.submit 'Sign Up' %>
 <% end %>
-
+<br><br>
 <h2>Login with Google:</h2>
-
+<br>
 <%= button_to 'Click to login with Google', '/auth/google_oauth2' %>

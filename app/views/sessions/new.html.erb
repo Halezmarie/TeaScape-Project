@@ -1,3 +1,4 @@
+
 <br>
 <p><%= flash[:error] %></p>
 
@@ -9,12 +10,12 @@
     <%= f.password_field :password %>
     <%= f.submit 'Log In' %>
 <% end %>
-
+<br><br>
 <h2>Login with Google:</h2>
-
+<br>
 <%= button_to 'Click to login with Google', '/auth/google_oauth2' %>
 
-
+<br><br>
 <h1> Or if you are a new member, sign up below! </h1>
-
+<br>
 <%=link_to "Signup", signup_path %>

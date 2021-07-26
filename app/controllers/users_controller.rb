@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end 
 
   def create # going through the signup form
-     @user = User.new(user_params)
+     @user = User.new(user_params) 
      if @user.save
         session[:user_id] = @user.id # user logs in use the word usage of passing through the session hash 
         redirect_to user_path(@user) # applicationwelcome

@@ -1,6 +1,6 @@
 <%= render 'layouts/flash' %>
 
-<h1> Check out this tea </h1> 
+<h1> Check out this tea: </h1> 
 <p> Brand: <%= @tea.brand.name %></p> 
 
 <p> Flavor: <%= @tea.flavor %></p> 
@@ -11,7 +11,7 @@
 
 ~ created by: <%= @tea.user.email %>
 
-
+<br><br>
 <h3>Reviews:</h3>
 <ul>
     <% @reviews.each do |review| %> <br>

@@ -69,3 +69,5 @@ gem 'faker'
 
 #validate email
 gem "valid_email2"
+
+gem 'pry'

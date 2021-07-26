@@ -1,4 +1,7 @@
 <h1> All of the TeaScape brands </h1>
+<br>
+<p> Click on a brand of tea to make a new flavor of tea! From there, you can either review the flavor of tea or make new teas. </p>
+ <br><br>
 <%= render 'layouts/flash' %>
 <%
 =begin%>
@@ -8,9 +11,9 @@
 
 <%= form_tag brands_path(@brand), method: :get do %>
     <%= text_field_tag :search, params[:search]%>
-    <%= submit_tag "Find a Brand" %>
+    <%= submit_tag "Find a Brand of Tea" %>
 <% end %>
-
+<br><br>
 <ul>
 <% @brands.collect do |brand| %>
  <li><%= link_to brand.name, brand_path(brand) %></li>

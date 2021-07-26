@@ -20,6 +20,8 @@
 #     biscotto= User.create(username: "Biscotto", email: "biscotto@biscotto.com", password: "password")
 #     anastasia= User.create(username: "Anastasia", email: "anastasia@anastasia.com", password: "password")
 
+
+# could just do brands for it
 # Brand.create(name: "Republic of Tea")
 
 # Tea.create(brand: "Republic of Tea" flavor: "Orange Citrus", type: "green tea", description: "yummyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")

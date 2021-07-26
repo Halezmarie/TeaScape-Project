@@ -1,4 +1,5 @@
 <h1> All of the delicious flavors of tea on TeaScape! </h1>
+<br><br>
 <%= render 'layouts/flash' %>
 
 <%= form_tag teas_path(@tea), method: :get do %>
@@ -12,7 +13,7 @@
         <%= link_to tea.flavor, tea_path(tea)%> - <%= tea.brand.name %>
     </li>
   <% end %>
-
+<br>
 <h2> Don't see a specific flavor of tea?! Make it! </h2>
 
 <%= link_to "Create a new flavor of tea!", new_tea_path %>

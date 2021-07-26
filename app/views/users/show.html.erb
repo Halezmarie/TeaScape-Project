@@ -1,12 +1,29 @@
 <h1> <%= @user.username%>'s TeaScape Profile! </h1>
+<br>
 
-
-<h3> Here are the tea flavors you have reviewed on TeaScape: </h3>
+<h3> Here are the flavors of tea that you have reviewed on TeaScape: </h3>
  <% @user.reviewed_teas.each do |tea|%>
   <li> <%= link_to tea.flavor, tea_path(tea)%> </li>
   <% end %>
 <br><br>
 
 
-<h3> Would you like to review some more teas?! Let's get started: </h3>
- <%= link_to "Let's go review some more teas!", teas_path%>
+<h3> Would you like to review some teas? Let's get started: </h3>
+ <%= link_to "Let's go review!", teas_path%>
+ <br><br>
+
+
+<h3> Here are the flavors of tea that you have made on TeaScape: </h3>
+ <% @user.teas.each do |tea|%>
+  <li> <%= link_to tea.flavor, tea_path(tea)%> </li>
+  <% end %>
+
+  <br>
+<h3> Would you like to make some more flavors of tea? Choose a brand and get started! </h3>
+ <%= link_to "Make more flavors!", brands_path %>
+ <br><br>
+
+<h3> Here are the brands of tea that you have made on TeaScape: </h3>
+ <% @user.brands.each do |brand|%>
+  <li> <%= link_to brand.name, brand_path(brand)%> </li>
+  <% end %>
