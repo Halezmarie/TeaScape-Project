@@ -4,7 +4,10 @@
 # Examples:
 #
 #
-
+25.times do 
+    Brand.create([{
+        name:Faker::Tea.variety}])
+end
 
 #     # 100.times do
 #     #     brand = Faker::Tea.variety
