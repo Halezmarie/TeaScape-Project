@@ -3,7 +3,8 @@ class Review < ApplicationRecord
   belongs_to :tea
 
   validates :title, presence: true
-  validates :text, length: { minimum: 15} # say something short at least
+  validates :text, length: { minimum: 15}
+  validates :stars, presence: true 
 
 
   # if the review has already been reviewed by the user then they cannot review it again 

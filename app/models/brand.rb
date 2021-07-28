@@ -1,6 +1,6 @@
 class Brand < ApplicationRecord
   has_many :teas
-  has_many :users, through: :teas
+  has_many :users
   validates :name, presence: true, uniqueness: true
   validates_uniqueness_of :name, :case_sensitive => false
 

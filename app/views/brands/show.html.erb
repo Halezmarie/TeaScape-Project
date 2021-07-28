@@ -1,4 +1,5 @@
 <h1> Check this brand of tea out: </h1>
+<br>
 <h3>Mmmm... <%= @brand.name %></h3>
 
 
@@ -11,7 +12,7 @@
 </ul>
 
 
-<% if current_user.id == @brand.id %>
+<% if @brand.user_id == current_user.id %>
 <%= link_to "Edit this brand of Tea", edit_brand_path(@brand) %><br>
 <% end %>
 <%= link_to "Add a tea to this brand!", new_brand_tea_path(@brand) %><br>

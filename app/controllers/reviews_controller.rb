@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
   
   def edit
     if @review.user_id != current_user.id
-        redirect_to tea_path(@review.tea_id) 
+        redirect_to tea_path(@review.tea_id), alert: "You can't edit this review because you didn't make it!"
     end
 end
   

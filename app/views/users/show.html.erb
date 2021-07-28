@@ -8,8 +8,8 @@
 <br><br>
 
 
-<h3> Would you like to review some teas? Let's get started: </h3>
- <%= link_to "Let's go review!", teas_path%>
+<p> Would you like to review some teas? Let's get started: <p>
+ <%= link_to "Let's go Review!", teas_path%>
  <br><br>
 
 
@@ -19,11 +19,21 @@
   <% end %>
 
   <br>
-<h3> Would you like to make some more flavors of tea? Choose a brand and get started! </h3>
- <%= link_to "Make more flavors!", brands_path %>
+<p> Would you like to make some flavors of tea? Choose a brand and get started! <p>
+ <%= link_to "Make More Flavors!", brands_path %>
  <br><br>
 
-<h3> Here are the brands of tea that you have made on TeaScape: </h3>
+<h3> The brands of tea that you have created:  </h3>
+<%
+=begin%>
+ <p> There must be a flavor of tea added to the brand for it to official. </p> 
+<%
+=end%>
  <% @user.brands.each do |brand|%>
   <li> <%= link_to brand.name, brand_path(brand)%> </li>
   <% end %>
+
+<br>
+<p> Would you like to make some brands of tea?  <p>
+<%= link_to "Create a Brand!", new_brand_path %>
+ <br><br>

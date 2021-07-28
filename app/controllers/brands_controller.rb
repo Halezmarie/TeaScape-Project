@@ -1,8 +1,6 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only:[:show, :edit, :update]
   before_action :require_login
-  #  set a value of an instance variable outside the class
-
   before_action :set_brand_ids, only: [:show, :edit, :update] # show edit link if user made the brand
  
   
@@ -26,8 +24,10 @@ class BrandsController < ApplicationController
     @brand = Brand.new
   end
 
-  def create  # tries to save it to the database if it is possible. validates, saves into the params 
+  def create # tries to save it to the database if it is possible. validates, saves into the params 
+    @brand = Brand.find_by(id: params[:brand_id])   
     @brand = Brand.new(brand_params)
+    @brand.user_id = current_user[:id]
       if @brand.save
         redirect_to brands_path(@brand)
       else
@@ -36,8 +36,8 @@ class BrandsController < ApplicationController
   end
 
   def edit
-    if @brand_id != current_user.id
-      redirect_to brands_path, alert: "Please make sure these requirements are fulfilled: 1) You are the owner of this tea, and 2) at least one flavor of tea is added to the brand"
+    if @brand.user_id != current_user.id
+      redirect_to brands_path, alert: "You are not the owner of this brand of tea!"
     end
   end
     
@@ -64,6 +64,6 @@ class BrandsController < ApplicationController
 
   # Setter methods so that I can set a value of the instance variable outside of the class 
   def set_brand_ids
-    @brand_id = current_user.id
+    @brand.user_id == current_user.id
   end
 end
