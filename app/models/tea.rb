@@ -24,7 +24,7 @@ class Tea < ApplicationRecord
     end
   end
 
-  # refactor this 
+ 
   def format_values
     self.flavor = self.flavor.titleize.strip
     self.description = self.description.capitalize

@@ -4,8 +4,8 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :reviewed_teas, through: :reviews, source: :tea
-  has_many :teas 
-  has_many :brands
+  has_many :teas
+  has_many :brands, through: :teas
   
 
   # validations 

@@ -10,7 +10,7 @@ class TeasController < ApplicationController # just like brands
           redirect_to brands_path, alert: "Uh oh! TeaScape can't find that brand of tea!"
       end
     else 
-    @teas = Tea.all
+    @teas = Tea.all # show ALL the teas 
     @teas = Tea.by_flavor(params[:search])
     end
   end
@@ -20,7 +20,7 @@ class TeasController < ApplicationController # just like brands
       @tea = Tea.find(params[:id])
       @reviews = @tea.reviews # show the reviews for the teas
   else
-      redirect_to teas_path  # add an alert: could not find the tea
+      redirect_to teas_path, alert: "This flavor of tea doesn't exist! Maybe you can make it?"
     end
   end
     
@@ -35,7 +35,7 @@ class TeasController < ApplicationController # just like brands
   end
   
 
-  # tries to save it to the database if it is possible - need to refactor 
+  # tries to save it to the database if it is possible. validates, saves into the params 
   def create
     @brand = Brand.find_by(id: params[:brand_id])
     @tea = Tea.new(tea_params)
@@ -48,7 +48,6 @@ class TeasController < ApplicationController # just like brands
     end
   end
 
-  
   def edit
     if @tea.user_id != current_user.id
         redirect_to tea_path(@tea), alert: "You can't edit this tea unless you created it!"
@@ -66,7 +65,7 @@ end
  def destroy
     if @tea.user_id == current_user.id
       @tea.destroy
-      redirect_to teas_path
+      redirect_to teas_path, alert: "You sucessfully deleted the flavor of tea!"
     else
       redirect_to tea_path(@tea), alert: "You can't delete this tea because you did not make it!"
     end

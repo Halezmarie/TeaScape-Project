@@ -26,11 +26,13 @@
     <% end %>
 </ul>
 <br>
+
+
 <% if current_user.id == @tea.user_id %>
 <%= link_to "Edit this flavor of tea", edit_tea_path(@tea) %><br>
  <%= link_to "Delete this tea", tea_path(@tea), method: :delete %>
 <% end %>
 <br>
-<%= link_to "New Review", new_tea_review_path(@tea) %><br>
+<%= link_to "New Review", new_tea_review_path(@tea.id) %><br>
 
  
