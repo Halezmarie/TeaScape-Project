@@ -10,7 +10,7 @@
 
   <% @teas.each do |tea| %>
    <li>
-        <%= link_to tea.flavor, tea_path(tea)%> - <%= tea.brand.name %>
+        <%= link_to tea.flavor, tea_path(tea)%> - <%= link_to tea.brand.name, brand_teas_path(tea.brand)%>
     </li>
   <% end %>
 <br>
