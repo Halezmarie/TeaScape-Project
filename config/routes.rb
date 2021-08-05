@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   #signup
   get '/signup', to: 'users#new'
-  # route      action   model method 
+
   post '/signup', to: 'users#create'
 
   #login

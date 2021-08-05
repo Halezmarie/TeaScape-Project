@@ -15,15 +15,12 @@ class Tea < ApplicationRecord
 
   scope :by_flavor, ->(search) { where('flavor LIKE ?', "%#{search}%") }
 
-
-  # user cannot make a tea with the same flavor and brand already existing
   def not_a_duplicate
-    tea = Tea.find_by(flavor: flavor, brand_id: brand_id) # setting variables 
-    if !!tea && tea != self # if the tea flavors match with a flavor that is already in the brand then it will throw an error
+    tea = Tea.find_by(flavor: flavor, brand_id: brand_id) 
+    if !!tea && tea != self 
       errors.add(:flavor, 'has already been added for that brand of tea! Yikes!')
     end
   end
-
  
   def format_values
     self.flavor = self.flavor.titleize.strip
