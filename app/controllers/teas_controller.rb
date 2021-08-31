@@ -2,6 +2,7 @@ class TeasController < ApplicationController
   before_action :require_login
   before_action :set_tea, only: [:edit, :update, :destroy]
 
+  # refactor these, probably need 1 or 2 at the most 
   def index
     if params[:brand_id]
       if Brand.find_by(id: params[:brand_id])

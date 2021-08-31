@@ -8,9 +8,7 @@ class BrandsController < ApplicationController
   end
 
   def show
-    if Brand.find_by_id(params[:id]) 
-      @brand = Brand.find_by_id(params[:id])
-    else
+    if !@brand 
       redirect_to brands_path, alert: "This brand of tea does not exist! Maybe you can make it?"
     end
   end
@@ -19,10 +17,11 @@ class BrandsController < ApplicationController
     @brand = Brand.new
   end
 
-  def create 
-    @brand = Brand.find_by(id: params[:brand_id])   
-    @brand = Brand.new(brand_params) 
-    @brand.user_id = current_user[:id] 
+
+  def create   
+    # @brand = Brand.new(brand_params) 
+       @brand = current_user.brands.build(brand_params) 
+    # @brand.user_id = current_user[:id] 
       if @brand.save
         redirect_to brands_path(@brand) 
       else

@@ -18,7 +18,7 @@
 <ul>
     <% @reviews.each do |review| %> <br>
         <li>
-            <%= review.user.email %> <br> Title: <%= review.title%> | Stars given: <%= review.stars%> | <%= review.text %> 
+            <%= review.user.email %> <br> Title: <%= review.title%> | Stars given: <%= review.stars%> | <%= review.text %> | Name of tea: <%= review.tea %> 
             <% if review.user_id == current_user.id %>
                 <br><%= link_to "edit", edit_review_path(review) %> | <%= link_to "delete", review_path(review), method: :delete %><br> 
             <% end %>
@@ -26,7 +26,6 @@
     <% end %>
 </ul>
 <br>
-
 
 <% if current_user.id == @tea.user_id %>
 <%= link_to "Edit this flavor of tea", edit_tea_path(@tea) %><br>
