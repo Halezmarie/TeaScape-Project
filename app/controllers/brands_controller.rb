@@ -31,7 +31,7 @@ class BrandsController < ApplicationController
 
   def edit
     if @brand.user_id != current_user.id 
-      redirect_to brands_path, alert: "You are not the owner of this brand of tea!"
+      redirect_to brands_path, alert: "You are not the owner of this brand of tea!😓"
     end
   end
     

@@ -63,7 +63,7 @@ end
  def destroy
     if @tea.user_id == current_user.id 
       @tea.destroy
-      redirect_to teas_path, alert: "You sucessfully deleted the flavor of tea!"
+      redirect_to teas_path, alert: "You sucessfully deleted the flavor of tea!😁"
     else
       redirect_to tea_path(@tea), alert: "You can't delete this tea because you did not make it!"
     end
