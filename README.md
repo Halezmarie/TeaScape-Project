@@ -1,7 +1,7 @@
 
 [Demo of TeaScape](https://www.youtube.com/watch?v=ygHHl_Nc8ks)
 
-# Welcome to TeaScape
+# Welcome to TeaScape 🍵
 
 TeaScape is for anyone who loves tea. Users can create, delete, edit, and review tea. Users can also see the reviews of other users. If you'd like to check out this app, please read below.
 
